@@ -1,4 +1,4 @@
-package com.example.contracttest;
+package com.example.contracttesttutorial;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
