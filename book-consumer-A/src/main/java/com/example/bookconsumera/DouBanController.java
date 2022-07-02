@@ -8,8 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/books")
 public class DouBanController {
+    private final DoubanService doubanService;
+
+    public DouBanController(DoubanService doubanService) {
+        this.doubanService = doubanService;
+    }
+
     @GetMapping("/{id}")
     public DoubanBookResponse getBook(@PathVariable Long id) {
-        return DoubanService.getBookById(id);
+        return doubanService.getBookById(id);
     }
 }

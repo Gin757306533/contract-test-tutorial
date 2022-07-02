@@ -1,2 +1,6 @@
 server:
   port: 8083
+
+app:
+  book-service:
+    url: http://localhost:8082
