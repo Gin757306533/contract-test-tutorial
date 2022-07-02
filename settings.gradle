@@ -1,2 +1,3 @@
 rootProject.name = 'contract-test-tutorial'
-include 'book-service'
+include 'book-service-provider'
+include 'book-consumer-A'
