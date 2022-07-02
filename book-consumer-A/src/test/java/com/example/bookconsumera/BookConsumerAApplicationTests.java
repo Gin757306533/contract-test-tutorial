@@ -1,13 +1,13 @@
-package com.example.contracttesttutorial;
+package com.example.bookconsumera;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ContractTestApplicationTests {
+class BookConsumerAApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
