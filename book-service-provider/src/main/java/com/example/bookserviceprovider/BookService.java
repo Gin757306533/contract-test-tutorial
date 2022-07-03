@@ -2,6 +2,7 @@ package com.example.bookserviceprovider;
 
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -12,16 +13,16 @@ public class BookService {
                 .authors(
                         List.of(
                                 BookProviderResponse.Author.builder()
-                                        .name("张三")
-                                        .company("Thoughtworks")
+                                        .authorName("张三")
+                                        .authorCompany("Thoughtworks")
                                         .build(),
                                 BookProviderResponse.Author.builder()
-                                        .name("李四")
-                                        .company("Google")
+                                        .authorName("李四")
+                                        .authorCompany("Google")
                                         .build()
                         )
                 )
-                .price(129.99f)
+                .price(new BigDecimal("9898989898989898989898989898989898989898989898989898989.9999999999999999999999"))
                 .build();
     }
 }

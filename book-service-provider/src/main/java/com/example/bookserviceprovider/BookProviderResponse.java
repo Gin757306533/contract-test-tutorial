@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -14,14 +15,14 @@ import java.util.List;
 public class BookProviderResponse {
     private String title;
     private List<Author> authors;
-    private Float price;
+    private BigDecimal price;
 
     @Data
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
     static class Author {
-        private String name;
-        private String company;
+        private String authorName;
+        private String authorCompany;
     }
 }
