@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class TaoBaoBookResponse {
     private String title;
-    private Integer price;
+    private Float price;
 }

@@ -21,7 +21,7 @@ public class BookService {
                                         .build()
                         )
                 )
-                .price(129)
+                .price(129.99f)
                 .build();
     }
 }
