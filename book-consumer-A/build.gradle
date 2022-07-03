@@ -39,5 +39,7 @@ pact {
     publish {
         pactDirectory = "$projectDir/build/pacts"
         pactBrokerUrl = "http://localhost:8085"
+        pactBrokerUsername = 'pact'
+        pactBrokerPassword = 'pact'
     }
 }
