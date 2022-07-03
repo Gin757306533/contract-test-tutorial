@@ -1,8 +1,7 @@
 package contracttest.consumer;
 
-import au.com.dius.pact.consumer.dsl.PactDslJsonArray;
-import au.com.dius.pact.consumer.dsl.PactDslJsonBody;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
+import au.com.dius.pact.consumer.junit5.PactConsumerTestExt;
 import au.com.dius.pact.consumer.junit5.PactTestFor;
 import au.com.dius.pact.core.model.RequestResponsePact;
 import au.com.dius.pact.core.model.annotations.Pact;
@@ -11,17 +10,20 @@ import com.example.bookconsumera.BookServiceClient;
 import com.example.bookconsumera.DoubanBookResponse;
 import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@ExtendWith(PactConsumerTestExt.class)
 @SpringBootTest(classes = BookConsumerAApplication.class)
+@ActiveProfiles("contract-test")
 public class DoubanBookConsumerTest {
 
     @Autowired
@@ -50,6 +52,7 @@ public class DoubanBookConsumerTest {
                 .path("/books/1")
                 .willRespondWith()
                 .status(HttpStatus.OK.value())
+                .matchHeader("Content-Type", "application/json")
                 .body(new Gson().toJson(doubanBookResponse))
                 .toPact();
     }
@@ -61,5 +64,14 @@ public class DoubanBookConsumerTest {
 
         assertThat(book)
                 .returns("《Java从入门到放弃》", DoubanBookResponse::getTitle);
+        assertThat(book.getAuthors())
+                .satisfiesExactly(
+                        it -> assertThat(it)
+                                .returns("张三", DoubanBookResponse.Author::getName)
+                                .returns("Thoughtworks", DoubanBookResponse.Author::getCompany),
+                        it -> assertThat(it)
+                                .returns("李四", DoubanBookResponse.Author::getName)
+                                .returns("Google", DoubanBookResponse.Author::getCompany)
+                );
     }
 }

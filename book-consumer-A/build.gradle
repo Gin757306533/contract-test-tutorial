@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.7.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java-library'
+    id 'au.com.dius.pact' version '4.1.7'
 }
 
 group = 'com.example'
@@ -31,5 +32,12 @@ tasks.named('test') {
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:2021.0.3"
+    }
+}
+
+pact {
+    publish {
+        pactDirectory = "$projectDir/build/pacts"
+        pactBrokerUrl = "http://localhost:8085"
     }
 }
