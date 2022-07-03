@@ -20,7 +20,7 @@ public class DoubanBookResponse {
     @NoArgsConstructor
     @AllArgsConstructor
     static class Author {
-        private String name;
-        private String company;
+        private String authorName;
+        private String authorCompany;
     }
 }
