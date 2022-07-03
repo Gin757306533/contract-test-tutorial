@@ -13,6 +13,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.google.code.gson:gson:2.9.0'
     api 'org.springframework.cloud:spring-cloud-starter-openfeign'
 
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
@@ -20,6 +21,7 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation "au.com.dius.pact.consumer:junit5:4.1.7"
 }
 
 tasks.named('test') {
