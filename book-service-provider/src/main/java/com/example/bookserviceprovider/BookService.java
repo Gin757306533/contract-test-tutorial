@@ -9,16 +9,12 @@ import java.util.List;
 public class BookService {
     public BookProviderResponse getBookById(Long id) {
         return BookProviderResponse.builder()
-                .title("《Java从入门到放弃》")
+                .title("Effective Java")
                 .authors(
                         List.of(
                                 BookProviderResponse.Author.builder()
-                                        .authorName("张三")
-                                        .authorCompany("Thoughtworks")
-                                        .build(),
-                                BookProviderResponse.Author.builder()
-                                        .authorName("李四")
-                                        .authorCompany("Google")
+                                        .authorName("Joshua Bloch")
+                                        .authorCompany("Sun Microsystems & Google")
                                         .build()
                         )
                 )
