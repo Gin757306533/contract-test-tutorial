@@ -34,12 +34,3 @@ dependencyManagement {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:2021.0.3"
     }
 }
-
-pact {
-    publish {
-        pactDirectory = "$projectDir/build/pacts"
-        pactBrokerUrl = "http://localhost:8085"
-        pactBrokerUsername = 'pact'
-        pactBrokerPassword = 'pact'
-    }
-}
