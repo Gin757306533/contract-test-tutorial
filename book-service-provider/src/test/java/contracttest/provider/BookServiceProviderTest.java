@@ -37,6 +37,11 @@ public class BookServiceProviderTest {
 
     }
 
+    @State("get taobao book info by id")
+    void getTaobaoBookInfoById() {
+
+    }
+
     @TestTemplate
     @ExtendWith(PactVerificationInvocationContextProvider.class)
     void verifyPact(PactVerificationContext context) {
