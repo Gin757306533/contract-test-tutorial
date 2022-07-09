@@ -8,20 +8,16 @@ import java.util.List;
 public class BookService {
     public BookProviderResponse getBookById(Long id) {
         return BookProviderResponse.builder()
-                .title("《Java从入门到放弃》")
+                .title("Effective Java")
                 .authors(
                         List.of(
                                 BookProviderResponse.Author.builder()
-                                        .name("张三")
-                                        .company("Thoughtworks")
-                                        .build(),
-                                BookProviderResponse.Author.builder()
-                                        .name("李四")
-                                        .company("Google")
+                                        .name("Joshua Bloch")
+                                        .company("Sun Microsystems & Google")
                                         .build()
                         )
                 )
-                .price(129.99f)
+                .price(49.49f)
                 .build();
     }
 }
