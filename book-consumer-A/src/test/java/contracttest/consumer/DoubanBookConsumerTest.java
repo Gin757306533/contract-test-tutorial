@@ -32,16 +32,12 @@ public class DoubanBookConsumerTest {
     @Pact(consumer = "doubanServiceConsumer", provider = "bookServiceProvider")
     RequestResponsePact getBookById(@NotNull PactDslWithProvider builder) {
         var doubanBookResponse = DoubanBookResponse.builder()
-                .title("《Java从入门到放弃》")
+                .title("Effective Java")
                 .authors(
                         List.of(
                                 DoubanBookResponse.Author.builder()
-                                        .name("张三")
-                                        .company("Thoughtworks")
-                                        .build(),
-                                DoubanBookResponse.Author.builder()
-                                        .name("李四")
-                                        .company("Google")
+                                        .name("Joshua Bloch")
+                                        .company("Sun Microsystems & Google")
                                         .build()
                         )
                 )
@@ -63,15 +59,12 @@ public class DoubanBookConsumerTest {
         var book = client.getBook(1L);
 
         assertThat(book)
-                .returns("《Java从入门到放弃》", DoubanBookResponse::getTitle);
+                .returns("Effective Java", DoubanBookResponse::getTitle);
         assertThat(book.getAuthors())
                 .satisfiesExactly(
                         it -> assertThat(it)
-                                .returns("张三", DoubanBookResponse.Author::getName)
-                                .returns("Thoughtworks", DoubanBookResponse.Author::getCompany),
-                        it -> assertThat(it)
-                                .returns("李四", DoubanBookResponse.Author::getName)
-                                .returns("Google", DoubanBookResponse.Author::getCompany)
+                                .returns("Joshua Bloch", DoubanBookResponse.Author::getName)
+                                .returns("Sun Microsystems & Google", DoubanBookResponse.Author::getCompany)
                 );
     }
 }

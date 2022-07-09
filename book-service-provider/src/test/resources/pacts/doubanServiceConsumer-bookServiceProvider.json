@@ -1,0 +1,58 @@
+{
+  "provider": {
+    "name": "bookServiceProvider"
+  },
+  "consumer": {
+    "name": "doubanServiceConsumer"
+  },
+  "interactions": [
+    {
+      "description": "get douban book info by id",
+      "request": {
+        "method": "GET",
+        "path": "/books/1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "title": "Effective Java",
+          "authors": [
+            {
+              "name": "Joshua Bloch",
+              "company": "Sun Microsystems & Google"
+            }
+          ]
+        },
+        "matchingRules": {
+          "header": {
+            "Content-Type": {
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "application/json"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        }
+      },
+      "providerStates": [
+        {
+          "name": "get douban book info by id"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    },
+    "pact-jvm": {
+      "version": "4.1.7"
+    }
+  }
+}

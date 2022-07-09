@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.7.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id 'au.com.dius.pact' version '4.1.7'
 }
 
 group = 'com.example'
@@ -15,8 +16,9 @@ repositories {
 dependencies {
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
     annotationProcessor 'org.projectlombok:lombok'
-
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    testImplementation "au.com.dius.pact.provider:junit5:4.1.7"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
