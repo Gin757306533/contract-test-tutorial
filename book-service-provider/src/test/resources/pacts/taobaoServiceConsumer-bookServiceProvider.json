@@ -34,12 +34,7 @@
             }
           }
         }
-      },
-      "providerStates": [
-        {
-          "name": "get taobao book info by id"
-        }
-      ]
+      }
     }
   ],
   "metadata": {

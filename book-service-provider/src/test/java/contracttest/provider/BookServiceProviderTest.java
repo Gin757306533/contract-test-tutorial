@@ -32,11 +32,6 @@ public class BookServiceProviderTest {
         System.setProperty("pact.verifier.publishResults", "true");
     }
 
-    @State("get taobao book info by id")
-    void getTaobaoBookInfoById() {
-
-    }
-
     @TestTemplate
     @ExtendWith(PactVerificationInvocationContextProvider.class)
     void verifyPact(PactVerificationContext context) {

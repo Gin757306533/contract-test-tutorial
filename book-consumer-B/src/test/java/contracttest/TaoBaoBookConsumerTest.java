@@ -33,7 +33,7 @@ public class TaoBaoBookConsumerTest {
                 .title("Effective Java")
                 .price(49.49f)
                 .build();
-        return builder.given("get taobao book info by id")
+        return builder
                 .uponReceiving("get taobao book info by id")
                 .method("GET")
                 .path("/books/1")
