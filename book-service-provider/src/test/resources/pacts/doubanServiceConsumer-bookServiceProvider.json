@@ -39,12 +39,7 @@
             }
           }
         }
-      },
-      "providerStates": [
-        {
-          "name": "get douban book info by id"
-        }
-      ]
+      }
     }
   ],
   "metadata": {

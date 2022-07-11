@@ -42,7 +42,7 @@ public class DoubanBookConsumerTest {
                         )
                 )
                 .build();
-        return builder.given("get douban book info by id")
+        return builder
                 .uponReceiving("get douban book info by id")
                 .method("GET")
                 .path("/books/1")

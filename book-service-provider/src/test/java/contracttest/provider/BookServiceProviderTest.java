@@ -32,11 +32,6 @@ public class BookServiceProviderTest {
         System.setProperty("pact.verifier.publishResults", "true");
     }
 
-    @State("get douban book info by id")
-    void getDoubanBookInfoById() {
-
-    }
-
     @State("get taobao book info by id")
     void getTaobaoBookInfoById() {
 
