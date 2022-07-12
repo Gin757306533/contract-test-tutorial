@@ -40,6 +40,41 @@
           }
         }
       }
+    },
+    {
+      "description": "get douban book info by id2",
+      "request": {
+        "method": "GET",
+        "path": "/books/1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "title": "Effective Java",
+          "authors": [
+            {
+              "name": "Joshua Bloch",
+              "company": "Sun Microsystems & Google"
+            }
+          ]
+        },
+        "matchingRules": {
+          "header": {
+            "Content-Type": {
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "application/json"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        }
+      }
     }
   ],
   "metadata": {

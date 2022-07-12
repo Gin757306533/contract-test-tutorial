@@ -4,8 +4,8 @@ import au.com.dius.pact.provider.junit5.HttpTestTarget;
 import au.com.dius.pact.provider.junit5.PactVerificationContext;
 import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvider;
 import au.com.dius.pact.provider.junitsupport.Provider;
-import au.com.dius.pact.provider.junitsupport.State;
-import au.com.dius.pact.provider.junitsupport.loader.PactFolder;
+import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
+import au.com.dius.pact.provider.junitsupport.loader.PactBrokerAuth;
 import com.example.bookserviceprovider.BookServiceProviderApplication;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +16,13 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 
 @Provider("bookServiceProvider")
 @SpringBootTest(classes = BookServiceProviderApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@PactFolder("pacts")
+@PactBroker(
+        host = "localhost:8085/",
+        authentication = @PactBrokerAuth(
+                username = "pact",
+                password = "pact"
+        )
+)
 public class BookServiceProviderTest {
 
     @LocalServerPort
